@@ -31,8 +31,9 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
 
   btnText.textContent = "Enviando...";
 
-  fetch('/', {
+  fetch(form.getAttribute('action') || '/', {
     method: 'POST',
+    redirect: 'manual',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams(formData).toString()
   })
